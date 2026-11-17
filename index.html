@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===== META TAGS ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tradition Wear — Discover authentic handcrafted textiles and artisan handicrafts from India's finest weavers. Handwoven heritage meets modern elegance.">
+  <meta name="theme-color" content="#C45B3F">
+  <title>Tradition Wear — Handwoven Heritage, Modern Elegance</title>
+
+  <!-- ===== GOOGLE FONTS ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- ===== REMIX ICON ===== -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+
+  <!-- ===== MAIN STYLESHEET ===== -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       1. LOADING SCREEN
+       Displays a spinner and brand name while assets load
+       ============================================================ -->
+  <div id="loading-screen">
+    <div class="loader-content">
+      <span class="loader-brand">Tradition Wear</span>
+      <div class="spinner"></div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       2. ANNOUNCEMENT BAR
+       Scrolling promotional text with a dismiss button
+       ============================================================ -->
+  <div class="announcement-bar">
+    <div class="announcement-text">
+      <span>✨ Diwali Festive Sale — Flat 20% Off on All Silk Sarees | Code: FESTIVE20 ✨</span>
+    </div>
+    <button class="announcement-close" aria-label="Close announcement">&times;</button>
+  </div>
+
+  <!-- ============================================================
+       3. HEADER
+       Single-row sticky header: Logo | Nav Links | Action Icons
+       ============================================================ -->
+  <header id="header">
+    <div class="header-inner">
+
+      <!-- Logo -->
+      <a href="#" class="logo">
+        <span class="logo-text">Tradition Wear</span>
+        <span class="logo-tagline">Handwoven Heritage · Modern Elegance</span>
+      </a>
+
+      <!-- Primary Navigation -->
+      <nav id="navbar">
+        <ul class="nav-menu">
+          <li><a href="#hero"       class="nav-link" data-i18n="home">Home</a></li>
+          <li><a href="#featured"   class="nav-link" data-i18n="shop">Shop</a></li>
+          <li><a href="#artisans"   class="nav-link" data-i18n="ourStory">Our Story</a></li>
+          <li><a href="#wholesale"  class="nav-link" data-i18n="wholesale">Wholesale</a></li>
+          <li><a href="#" class="nav-link" id="filter-btn">
+            <i class="ri-equalizer-line"></i> Filters
+          </a></li>
+        </ul>
+      </nav>
+
+      <!-- Right-side Action Icons -->
+      <div class="header-actions">
+        <!-- Language Selector -->
+        <select class="lang-select" id="lang-select" aria-label="Select language">
+          <option value="en">🇬🇧 EN</option>
+          <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
+        </select>
+        <!-- Dark / Light Mode Toggle -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+          <span class="toggle-icon">🌙</span>
+        </button>
+        <button class="btn-icon" id="login-btn" aria-label="Login or Sign Up">
+          <i class="ri-user-line"></i>
+        </button>
+        <a id="admin-link" href="admin.html" title="Admin Dashboard" class="btn-icon" style="display:none;text-decoration:none;font-size:1.1rem" aria-label="Admin Dashboard">👑</a>
+        <button class="btn-icon" id="location-btn" aria-label="Set your location">
+          <i class="ri-map-pin-line"></i>
+        </button>
+        <button class="btn-icon" id="search-btn" aria-label="Search products">
+          <i class="ri-search-line"></i>
+        </button>
+        <button class="btn-icon" id="wishlist-btn" aria-label="View wishlist">
+          <i class="ri-heart-line"></i>
+          <span class="badge" id="wishlist-count" style="display:none">0</span>
+        </button>
+        <button class="btn-icon" id="cart-btn" aria-label="View shopping cart">
+          <i class="ri-shopping-bag-line"></i>
+          <span class="badge" id="cart-count" style="display:none">0</span>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger (hidden on desktop) -->
+      <button id="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false">
+        <i class="ri-menu-line"></i>
+      </button>
+
+    </div><!-- /.header-inner -->
+  </header>
+
+  <!-- ============================================================
+       4. FILTER PANEL
+       Slide-down panel with category, material, price, and sort
+       ============================================================ -->
+  <div id="filter-panel">
+    <div class="filter-panel-inner">
+      <!-- Category Filter -->
+      <div class="filter-group">
+        <label for="filter-category">Category</label>
+        <select id="filter-category">
+          <option value="all">All</option>
+          <option value="women">Women</option>
+          <option value="men">Men</option>
+          <option value="kids">Kids</option>
+          <option value="home-decor">Home Decor</option>
+          <option value="handicrafts">Handicrafts</option>
+          <option value="accessories">Accessories</option>
+          <option value="gifts">Gifts</option>
+        </select>
+      </div>
+
+      <!-- Material Filter -->
+      <div class="filter-group">
+        <label for="filter-material">Material</label>
+        <select id="filter-material">
+          <option value="all">All</option>
+          <option value="silk">Silk</option>
+          <option value="cotton">Cotton</option>
+          <option value="wool">Wool</option>
+          <option value="brass">Brass</option>
+          <option value="jute">Jute</option>
+          <option value="mixed">Mixed</option>
+        </select>
+      </div>
+
+      <!-- Price Range Filter -->
+      <div class="filter-group">
+        <label>Price Range</label>
+        <div class="price-range">
+          <input type="number" id="price-min" placeholder="Min ₹" min="0">
+          <span class="price-separator">–</span>
+          <input type="number" id="price-max" placeholder="Max ₹" min="0">
+        </div>
+      </div>
+
+      <!-- Sort Filter -->
+      <div class="filter-group">
+        <label for="filter-sort">Sort By</label>
+        <select id="filter-sort">
+          <option value="featured">Featured</option>
+          <option value="price-low-high">Price Low–High</option>
+          <option value="price-high-low">Price High–Low</option>
+          <option value="newest">Newest</option>
+          <option value="rating">Rating</option>
+        </select>
+      </div>
+
+      <!-- Filter Action Buttons -->
+      <div class="filter-actions">
+        <button id="filter-apply" class="btn-primary">Apply Filters</button>
+        <button id="filter-reset" class="btn-secondary">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MAIN CONTENT WRAPPER
+       All primary content sections live inside <main>
+       ============================================================ -->
+  <main>
+
+    <!-- ==========================================================
+         5. HERO SECTION
+         Full-viewport hero with background video and CTA buttons
+         ========================================================== -->
+        <section id="hero">
+
+      <!-- HERO BACKGROUND: Full-bleed cultural artwork image -->
+      <div id="hero-bg-mosaic" aria-hidden="true">
+        <img id="hero-bg-img" src="assets/images/india-heritage-art.jpg" alt="Bharat — Unity in Diversity" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0;">
+        <div class="hbm-overlay"></div>
+        <div class="hbm-vignette"></div>
+      </div>
+
+      <div class="hero-badge">✦ Festive Collection 2026 — Now Live ✦</div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow"><span data-i18n="heritageLabel">India's Heritage</span><span class="dot">·</span><span data-i18n="artisanLabel">Artisan Crafted</span><span class="dot">·</span><span data-i18n="deliveredLabel">Delivered to You</span></p>
+        <h1 class="hero-title">Wear the<br><em>Soul of India</em></h1>
+        <p class="hero-tagline">Discover authentic handloom sarees, block-print kurtas and traditional ethnic wear — crafted by master weavers across India.</p>
+        <div class="hero-buttons">
+          <a href="#featured" class="btn-primary">
+            <i class="ri-shopping-bag-line"></i> Shop Now
+          </a>
+          <a href="#wholesale" class="btn-secondary">
+            <i class="ri-store-2-line"></i> Explore Wholesale
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>500+</strong>
+            <span>Artisan Families</span>
+          </div>
+          <div class="hero-stat-divider" aria-hidden="true"></div>
+          <div class="hero-stat">
+            <strong>12K+</strong>
+            <span>Happy Customers</span>
+          </div>
+          <div class="hero-stat-divider" aria-hidden="true"></div>
+          <div class="hero-stat">
+            <strong>8</strong>
+            <span>Craft Regions</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span>Scroll to Explore</span>
+        <i class="ri-arrow-down-line"></i>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         6. CATEGORIES SECTION
+         Grid of category cards linking to filtered product views
+         ========================================================== -->
+    <section id="categories" class="fade-in">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="shopByCategory">Shop by Category</h2>
+        <p class="section-subtitle">Explore our curated collections of handcrafted treasures</p>
+      </div>
+      <div class="categories-grid">
+
+        <!-- WOMEN: Banarasi silk saree fabric — rich jewel colours -->
+        <div class="category-card" data-category="women">
+          <img class="category-img"
+            src="assets/images/women-saree.jpg"
+            alt="Beautiful embroidered saree — Tradition Wear Women collection">
+          <div class="category-overlay">
+            <h3 class="category-name">Women</h3>
+            <p class="category-sub">Sarees &amp; Ethnic Wear</p>
+            <a href="#featured" class="category-link">Explore &rarr;</a>
+          </div>
+        </div>
+
+        <!-- MEN: Handloom weave close-up — indigo/ochre warp threads -->
+        <div class="category-card" data-category="men">
+          <img class="category-img"
+            src="assets/images/men-kurta.jpg"
+            alt="Embroidered kurta — Tradition Wear Men collection">
+          <div class="category-overlay">
+            <h3 class="category-name">Men</h3>
+            <p class="category-sub">Kurtas &amp; Sherwanis</p>
+            <a href="#featured" class="category-link">Explore &rarr;</a>
+          </div>
+        </div>
+
+        <!-- KIDS: Bright block-print cotton fabric — festive colours -->
+        <div class="category-card" data-category="kids">
+          <img class="category-img"
+            src="assets/images/kids-festive.jpg"
+            alt="Kids in traditional Navratri festive ethnic wear — Tradition Wear">
+          <div class="category-overlay">
+            <h3 class="category-name">Kids</h3>
+            <p class="category-sub">Festive &amp; Ethnic</p>
+            <a href="#featured" class="category-link">Explore &rarr;</a>
+          </div>
+        </div>
+
+        <!-- HOME DECOR: Handwoven dhurrie rug / Indian textile wall art -->
+        <div class="category-card" data-category="home">
+          <img class="category-img"
+            src="assets/images/home-decor.jpg"
+            alt="Handcrafted cushions and throws for home decor — Tradition Wear">
+          <div class="category-overlay">
+            <h3 class="category-name">Home Decor</h3>
+            <p class="category-sub">Rugs, Cushions &amp; Throws</p>
+            <a href="#featured" class="category-link">Explore &rarr;</a>
+          </div>
+        </div>
+
+        <!-- HANDICRAFTS: Terracotta clay pottery — traditional Indian craft -->
+        <div class="category-card" data-category="handicrafts">
+          <img class="category-img"
+            src="assets/images/handicrafts-pottery.jpg"
+            alt="Traditional Indian painted pottery handicrafts — Tradition Wear">
+          <div class="category-overlay">
+            <h3 class="category-name">Handicrafts</h3>
+            <p class="category-sub">Pottery &amp; Woodwork</p>
+            <a href="#featured" class="category-link">Explore &rarr;</a>
+          </div>
+        </div>
+
+        <!-- ACCESSORIES: Gold zari thread embroidery close-up -->
+        <div class="category-card" data-category="accessories">
+          <img class="category-img"
+            src="assets/images/accessories-jewellery.jpg"
+            alt="Traditional gold Indian jewellery and accessories — Tradition Wear">
+          <div class="category-overlay">
+            <h3 class="category-name">Accessories</h3>
+            <p class="category-sub">Jewellery &amp; Scarves</p>
+            <a href="#featured" class="category-link">Explore &rarr;</a>
+          </div>
+        </div>
+
+        <!-- GIFTS: Beautifully curated artisan gift hamper -->
+        <div class="category-card" data-category="gifts">
+          <img class="category-img"
+            src="assets/images/gifts-hamper.jpg"
+            alt="Luxury Diwali gift hamper sets — Tradition Wear">
+          <div class="category-overlay">
+            <h3 class="category-name">Gifts</h3>
+            <p class="category-sub">Hampers &amp; Gift Sets</p>
+            <a href="#featured" class="category-link">Explore &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         7. FEATURED PRODUCTS
+         Product grid populated dynamically by JavaScript
+         ========================================================== -->
+    <section id="featured" class="fade-in">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="newArrivals">New Arrivals &amp; Bestsellers</h2>
+        <p class="section-subtitle">Hand-picked pieces fresh from our artisan workshops</p>
+      </div>
+      <!-- Product cards are rendered by script.js -->
+      <div id="product-grid" class="product-grid">
+        <!-- Products will be dynamically injected here by JavaScript -->
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         8. ARTISANS SECTION
+         Two-column layout: image + storytelling text
+         ========================================================== -->
+    <section id="artisans" class="fade-in">
+      <div class="artisans-container">
+        <!-- Artisan Image -->
+        <div class="artisan-image">
+          <img src="https://images.pexels.com/photos/3094218/pexels-photo-3094218.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Indian artisan weaving fabric on a traditional handloom">
+        </div>
+        <!-- Artisan Story Text -->
+        <div class="artisan-text">
+          <h2>Our Artisans, Our Pride</h2>
+          <p>At Tradition Wear, every thread is woven by skilled artisans who have inherited their craft through generations. We work directly with over 500 weaver families across India, ensuring they receive fair wages and recognition for their extraordinary talent.</p>
+          <p>By choosing Tradition Wear, you are not just buying a product — you are preserving centuries-old heritage crafts, empowering rural communities, and keeping alive the rich textile traditions that define India's cultural identity.</p>
+          <a href="#" class="artisan-link">Meet Our Artisans →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         9. CRAFT REGIONS
+         Horizontally scrollable cards showcasing Indian craft hubs
+         ========================================================== -->
+    <section id="regions" class="fade-in">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="craftRegions">Explore Craft Regions of India</h2>
+        <p class="section-subtitle">Every region tells a unique story through its textiles</p>
+      </div>
+      <div class="regions-wrapper">
+        <div class="regions-track" id="regions-track">
+          <!-- Banarasi — Varanasi -->
+          <div class="region-card">
+            <img src="assets/images/r1-banarasi.jpg" alt="Banarasi silk weaving from Varanasi">
+            <div class="region-info">
+              <h3 class="region-name">Banarasi</h3>
+              <span class="region-state">Varanasi</span>
+            </div>
+          </div>
+          <!-- Kanchipuram — Tamil Nadu -->
+          <div class="region-card">
+            <img src="assets/images/r2-kanchipuram.jpg" alt="Kanchipuram silk saree weaving from Tamil Nadu">
+            <div class="region-info">
+              <h3 class="region-name">Kanchipuram</h3>
+              <span class="region-state">Tamil Nadu</span>
+            </div>
+          </div>
+          <!-- Pochampally — Telangana -->
+          <div class="region-card">
+            <img src="assets/images/r3-pochampally.jpg" alt="Pochampally ikat weaving from Telangana">
+            <div class="region-info">
+              <h3 class="region-name">Pochampally</h3>
+              <span class="region-state">Telangana</span>
+            </div>
+          </div>
+          <!-- Phulkari — Punjab -->
+          <div class="region-card">
+            <img src="assets/images/r4-phulkari.jpg" alt="Phulkari embroidery from Punjab">
+            <div class="region-info">
+              <h3 class="region-name">Phulkari</h3>
+              <span class="region-state">Punjab</span>
+            </div>
+          </div>
+          <!-- Ikat — Odisha -->
+          <div class="region-card">
+            <img src="assets/images/r5-ikat.jpg" alt="Ikat textile weaving from Odisha">
+            <div class="region-info">
+              <h3 class="region-name">Ikat</h3>
+              <span class="region-state">Odisha</span>
+            </div>
+          </div>
+          <!-- Block Print — Jaipur -->
+          <div class="region-card">
+            <img src="assets/images/r6-block-print.jpg" alt="Block printing craft from Jaipur">
+            <div class="region-info">
+              <h3 class="region-name">Block Print</h3>
+              <span class="region-state">Jaipur</span>
+            </div>
+          </div>
+          <!-- Chikankari — Lucknow -->
+          <div class="region-card">
+            <img src="https://images.pexels.com/photos/1666065/pexels-photo-1666065.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop" alt="Chikankari embroidery from Lucknow">
+            <div class="region-info">
+              <h3 class="region-name">Chikankari</h3>
+              <span class="region-state">Lucknow</span>
+            </div>
+          </div>
+          <!-- Kalamkari — Andhra Pradesh -->
+          <div class="region-card">
+            <img src="https://images.pexels.com/photos/1669799/pexels-photo-1669799.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop" alt="Kalamkari hand-painted textiles from Andhra Pradesh">
+            <div class="region-info">
+              <h3 class="region-name">Kalamkari</h3>
+              <span class="region-state">Andhra Pradesh</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- ==========================================================
+         10. WHY BUY FROM US — THE TAANAVANA PROMISE
+         Five trust-building feature cards
+         ========================================================== -->
+    <section id="why-us" class="fade-in">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="ourPromise">The Tradition Wear Promise</h2>
+        <p class="section-subtitle">Why thousands of customers trust us with their heritage shopping</p>
+      </div>
+      <div class="features-grid">
+        <!-- Feature 1: Direct from Artisans -->
+        <div class="feature-card">
+          <i class="ri-hand-heart-line"></i>
+          <h3>Direct from Artisans</h3>
+          <p>Every purchase supports weaver families directly — no middlemen, no markups, just authentic craft reaching your doorstep.</p>
+        </div>
+        <!-- Feature 2: 100% Handmade -->
+        <div class="feature-card">
+          <i class="ri-scissors-line"></i>
+          <h3>100% Handmade</h3>
+          <p>Crafted with love on traditional looms by skilled artisans who have perfected their art over generations.</p>
+        </div>
+        <!-- Feature 3: Fair Pricing -->
+        <div class="feature-card">
+          <i class="ri-price-tag-3-line"></i>
+          <h3>Fair Pricing</h3>
+          <p>No middlemen means fair wages for artisans and honest pricing for you. Quality craftsmanship at transparent costs.</p>
+        </div>
+        <!-- Feature 4: Secure Payments -->
+        <div class="feature-card">
+          <i class="ri-shield-check-line"></i>
+          <h3>Secure Payments</h3>
+          <p>SSL encrypted transactions with multiple payment options. Shop with complete peace of mind.</p>
+        </div>
+        <!-- Feature 5: Easy Returns -->
+        <div class="feature-card">
+          <i class="ri-exchange-line"></i>
+          <h3>Easy Returns</h3>
+          <p>15-day hassle-free returns. Not satisfied? We'll pick it up from your door — no questions asked.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         11. WHOLESALE BANNER
+         CTA section with inquiry form for bulk / wholesale orders
+         ========================================================== -->
+    <section id="wholesale" class="fade-in">
+      <div class="wholesale-banner">
+        <div class="wholesale-text">
+          <h2>Wholesale &amp; Bulk Orders</h2>
+          <p>Are you a retailer, boutique owner, or interior designer? Partner with Tradition Wear for authentic handcrafted products at wholesale prices. We offer competitive rates, custom orders, and reliable supply chains directly from artisan clusters across India.</p>
+        </div>
+        <form id="wholesale-form" class="wholesale-form">
+          <div class="wholesale-form-grid">
+            <div class="form-field">
+              <label for="ws-name"><i class="ri-user-line"></i> Your Name *</label>
+              <input type="text" id="ws-name" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-field">
+              <label for="ws-email"><i class="ri-mail-line"></i> Email Address *</label>
+              <input type="email" id="ws-email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-field">
+              <label for="ws-phone"><i class="ri-phone-line"></i> Phone Number *</label>
+              <input type="tel" id="ws-phone" name="phone" placeholder="+91 98765 43210" required pattern="[0-9+\- ]{10,15}">
+            </div>
+            <div class="form-field">
+              <label for="ws-company"><i class="ri-building-line"></i> Company / Store Name</label>
+              <input type="text" id="ws-company" name="company" placeholder="Your business name">
+            </div>
+            <div class="form-field">
+              <label for="ws-interest"><i class="ri-price-tag-3-line"></i> Product Interest *</label>
+              <select id="ws-interest" name="interest" required>
+                <option value="" disabled selected>Select product category</option>
+                <option value="sarees">Sarees (Silk, Cotton, Handloom)</option>
+                <option value="fabrics">Fabrics (Running Metres)</option>
+                <option value="home-textiles">Home Textiles (Bedsheets, Curtains)</option>
+                <option value="handicrafts">Handicrafts (Brass, Pottery, Wood)</option>
+                <option value="accessories">Accessories (Jewellery, Bags)</option>
+                <option value="kurtas">Kurtas & Ethnic Wear</option>
+                <option value="custom">Custom / Bespoke Orders</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="ws-qty"><i class="ri-stack-line"></i> Estimated Quantity</label>
+              <select id="ws-qty" name="quantity">
+                <option value="" disabled selected>Select quantity range</option>
+                <option value="50-100">50 – 100 pieces</option>
+                <option value="100-500">100 – 500 pieces</option>
+                <option value="500-1000">500 – 1,000 pieces</option>
+                <option value="1000+">1,000+ pieces</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field form-field-full">
+            <label for="ws-message"><i class="ri-chat-3-line"></i> Requirements & Notes</label>
+            <textarea id="ws-message" name="message" placeholder="Tell us about your requirements, preferred delivery timeline, any special customization needs..." rows="4"></textarea>
+          </div>
+          <div class="wholesale-form-actions">
+            <button type="submit" class="btn-primary" id="ws-submit-btn">
+              <i class="ri-send-plane-line"></i> Submit Wholesale Inquiry
+            </button>
+            <p class="ws-privacy-note"><i class="ri-shield-check-line"></i> Your details are secure. We respond within 24 hours.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         12. TESTIMONIALS
+         Sliding carousel of customer reviews
+         ========================================================== -->
+    <section id="testimonials" class="fade-in">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="testimonials">What Our Customers Say</h2>
+        <p class="section-subtitle">Real stories from our Tradition Wear family</p>
+      </div>
+      <div class="testimonial-slider">
+        <div class="testimonial-track" id="testimonial-track">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+            </div>
+            <p class="testimonial-quote">"The Banarasi silk saree I ordered exceeded all my expectations. The craftsmanship is exquisite and the colors are absolutely divine. I wore it to my sister's wedding and received countless compliments!"</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop" alt="Priya Sharma avatar" class="testimonial-avatar">
+              <div>
+                <strong class="testimonial-name">Priya Sharma</strong>
+                <span class="testimonial-location">Mumbai, Maharashtra</span>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+            </div>
+            <p class="testimonial-quote">"As an interior designer, I've been sourcing handloom fabrics from Tradition Wear for my projects. Their quality is consistently excellent and the wholesale team is incredibly responsive. Highly recommend for professionals!"</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop" alt="Rahul Mehta avatar" class="testimonial-avatar">
+              <div>
+                <strong class="testimonial-name">Rahul Mehta</strong>
+                <span class="testimonial-location">Bangalore, Karnataka</span>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-line"></i>
+            </div>
+            <p class="testimonial-quote">"I love knowing that my purchase directly supports artisan families. The Chikankari kurta I bought is so beautifully detailed — you can feel the hours of handwork in every stitch. Tradition Wear is my go-to for gifts!"</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop" alt="Ananya Iyer avatar" class="testimonial-avatar">
+              <div>
+                <strong class="testimonial-name">Ananya Iyer</strong>
+                <span class="testimonial-location">Chennai, Tamil Nadu</span>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 4 -->
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+            </div>
+            <p class="testimonial-quote">"The block-printed bedspread transformed my bedroom completely. The natural dyes have such a rich, earthy feel. Packaging was eco-friendly too — Tradition Wear truly practices what they preach. Will be ordering again!"</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop" alt="Vikram Singh avatar" class="testimonial-avatar">
+              <div>
+                <strong class="testimonial-name">Vikram Singh</strong>
+                <span class="testimonial-location">Delhi, NCR</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial Navigation -->
+        <div class="testimonial-nav">
+          <button id="testimonial-prev" aria-label="Previous testimonial"><i class="ri-arrow-left-s-line"></i></button>
+          <div id="testimonial-dots" class="testimonial-dots"></div>
+          <button id="testimonial-next" aria-label="Next testimonial"><i class="ri-arrow-right-s-line"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         13. NEWSLETTER
+         Email signup for exclusive updates and offers
+         ========================================================== -->
+    <section id="newsletter" class="fade-in">
+      <div class="newsletter-content">
+        <h2>Join the Tradition Wear Family</h2>
+        <p>Subscribe to receive exclusive offers, artisan stories, and early access to new collections. Be the first to know about our festive drops!</p>
+        <form id="newsletter-form" class="newsletter-form">
+          <input type="email" id="newsletter-email" placeholder="Enter your email address" required aria-label="Email address">
+          <button type="submit" class="btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       14. FOOTER
+       Site-wide footer with brand info, links, and contact details
+       ============================================================ -->
+  <footer id="footer" class="footer">
+    <div class="footer-main">
+      <!-- Column 1: Brand Info & Social -->
+      <div class="footer-col">
+        <h3 class="footer-brand">Tradition Wear</h3>
+        <p class="footer-description">Bringing India's finest handwoven textiles and artisan handicrafts to your doorstep. Every purchase empowers a weaver family.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Follow us on Instagram"><i class="ri-instagram-line"></i></a>
+          <a href="#" aria-label="Follow us on Facebook"><i class="ri-facebook-circle-line"></i></a>
+          <a href="#" aria-label="Follow us on Twitter"><i class="ri-twitter-x-line"></i></a>
+          <a href="#" aria-label="Follow us on Pinterest"><i class="ri-pinterest-line"></i></a>
+          <a href="#" aria-label="Contact us on WhatsApp"><i class="ri-whatsapp-line"></i></a>
+        </div>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#featured">Shop</a></li>
+          <li><a href="#featured">New Arrivals</a></li>
+          <li><a href="#featured">Bestsellers</a></li>
+          <li><a href="#featured">Sale</a></li>
+          <li><a href="#artisans">Our Story</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Customer Care -->
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Size Guide</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Contact Information -->
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <address>
+          <p><i class="ri-map-pin-line"></i> 42, Artisan Lane, Varanasi, Uttar Pradesh 221001, India</p>
+          <p><i class="ri-phone-line"></i> +91 98765 43210</p>
+          <p><i class="ri-mail-line"></i> hello@tradition-wear.com</p>
+        </address>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Bar -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 Tradition Wear. All rights reserved. Handcrafted with ♥ in India</p>
+      <p class="payment-icons">Visa | Mastercard | UPI | Net Banking | Cash on Delivery</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       15. OVERLAYS & DRAWERS
+       Slide-out panels and modals for cart, wishlist, login, etc.
+       ============================================================ -->
+
+  <!-- Overlay backdrop — click to close any open drawer / modal -->
+  <div id="overlay"></div>
+
+  <!-- ---- CART DRAWER (slides in from the right) ---- -->
+  <div id="cart-drawer" class="drawer drawer-right">
+    <div class="drawer-header">
+      <h3>Your Cart</h3>
+      <button id="cart-close" aria-label="Close cart drawer"><i class="ri-close-line"></i></button>
+    </div>
+    <div class="drawer-body" id="cart-items">
+      <!-- Cart items rendered by JS -->
+    </div>
+    <div class="drawer-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal:</span>
+        <strong id="cart-subtotal">₹0</strong>
+      </div>
+      <button class="btn-primary btn-block">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- ---- WISHLIST DRAWER (slides in from the right) ---- -->
+  <div id="wishlist-drawer" class="drawer drawer-right">
+    <div class="drawer-header">
+      <h3>Your Wishlist</h3>
+      <button id="wishlist-close" aria-label="Close wishlist drawer"><i class="ri-close-line"></i></button>
+    </div>
+    <div class="drawer-body" id="wishlist-items">
+      <!-- Wishlist items rendered by JS -->
+    </div>
+  </div>
+
+  <!-- ---- LOGIN / SIGNUP MODAL ---- -->
+  <!-- ════ PREMIUM LOGIN / SIGNUP MODAL ════ -->
+  <div id="login-modal" class="modal premium-auth-modal">
+    <div class="modal-content premium-auth-content">
+      <button id="login-close" class="modal-close" aria-label="Close"><i class="ri-close-line"></i></button>
+
+      <!-- Left Visual Panel -->
+      <div class="auth-modal-visual">
+        <img src="assets/images/login-bg.jpg" alt="Traditional Indian fashion" />
+        <div class="auth-modal-visual-overlay">
+          <div class="auth-modal-brand">🪡 Tradition Wear</div>
+          <h3>Wear the Soul<br>of India</h3>
+          <p>Join 12,000+ customers celebrating India's handloom heritage.</p>
+        </div>
+      </div>
+
+      <!-- Right Form Panel -->
+      <div class="auth-modal-form">
+        <div class="auth-modal-logo">ॐ</div>
+        <div class="auth-modal-tabs">
+          <button id="login-tab" class="auth-modal-tab active" data-i18n="login">Login</button>
+          <button id="signup-tab" class="auth-modal-tab" data-i18n="signup">Sign Up</button>
+        </div>
+
+        <!-- Error / Success message -->
+        <div id="auth-modal-msg" class="auth-modal-msg" style="display:none"></div>
+
+        <!-- LOGIN FORM -->
+        <form id="login-form" class="auth-modal-inner" autocomplete="on">
+          <div class="auth-modal-field">
+            <i class="ri-mail-line"></i>
+            <input type="email" id="login-email" placeholder="Email address" autocomplete="email" required data-i18n-placeholder="email" />
+          </div>
+          <div class="auth-modal-field">
+            <i class="ri-lock-line"></i>
+            <input type="password" id="login-password" placeholder="Password" autocomplete="current-password" required />
+            <button type="button" class="pw-toggle" data-target="login-password"><i class="ri-eye-off-line"></i></button>
+          </div>
+          <div class="auth-modal-row">
+            <label class="auth-check"><input type="checkbox" id="login-remember"> Remember me</label>
+            <a href="#" class="auth-forgot" id="modal-forgot-link">Forgot password?</a>
+          </div>
+          <button type="submit" class="auth-modal-submit" data-i18n="loginBtn">Login to Tradition Wear</button>
+          <div class="auth-modal-divider"><span>or continue with</span></div>
+          <button type="button" class="auth-modal-google" id="modal-google-btn">
+            <img src="https://www.google.com/favicon.ico" width="18" height="18" alt="G"> Google
+          </button>
+        </form>
+
+        <!-- SIGNUP FORM -->
+        <form id="signup-form" class="auth-modal-inner" style="display:none" autocomplete="on">
+          <div class="auth-modal-field">
+            <i class="ri-user-line"></i>
+            <input type="text" id="signup-name" placeholder="Full name" autocomplete="name" required data-i18n-placeholder="fullName" />
+          </div>
+          <div class="auth-modal-field">
+            <i class="ri-mail-line"></i>
+            <input type="email" id="signup-email" placeholder="Email address" autocomplete="email" required data-i18n-placeholder="email" />
+          </div>
+          <div class="auth-modal-field">
+            <i class="ri-phone-line"></i>
+            <input type="tel" id="signup-phone" placeholder="Phone number (optional)" autocomplete="tel" data-i18n-placeholder="phone" />
+          </div>
+          <div class="auth-modal-field">
+            <i class="ri-lock-line"></i>
+            <input type="password" id="signup-password" placeholder="Create password" autocomplete="new-password" required />
+            <button type="button" class="pw-toggle" data-target="signup-password"><i class="ri-eye-off-line"></i></button>
+          </div>
+          <button type="submit" class="auth-modal-submit" data-i18n="createAccount">Create Account</button>
+          <div class="auth-modal-divider"><span>or continue with</span></div>
+          <button type="button" class="auth-modal-google" id="modal-google-signup-btn">
+            <img src="https://www.google.com/favicon.ico" width="18" height="18" alt="G"> Google
+          </button>
+        </form>
+
+        <!-- FORGOT PASSWORD FORM -->
+        <form id="modal-forgot-form" class="auth-modal-inner" style="display:none">
+          <p class="auth-modal-hint">Enter your email and we'll send a password reset link.</p>
+          <div class="auth-modal-field">
+            <i class="ri-mail-line"></i>
+            <input type="email" id="forgot-email" placeholder="Your email address" required />
+          </div>
+          <button type="submit" class="auth-modal-submit">Send Reset Link</button>
+          <button type="button" class="auth-modal-back" id="modal-back-login">← Back to Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---- SEARCH OVERLAY (full-screen) ---- -->
+  <div id="search-overlay">
+    <button id="search-close" class="search-close-btn" aria-label="Close search"><i class="ri-close-line"></i></button>
+    <div class="search-wrapper">
+      <input type="text" id="search-input" placeholder="Search for sarees, kurtas, home decor..." aria-label="Search products">
+      <div id="search-results" class="search-results">
+        <!-- Search results rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ LOCATION POPUP (GPS + Pincode) ════ -->
+  <div id="location-popup" class="location-popup premium-location">
+    <div class="location-popup-content">
+      <button id="location-close" class="modal-close" aria-label="Close"><i class="ri-close-line"></i></button>
+      <div class="loc-header">
+        <i class="ri-map-pin-2-fill loc-icon"></i>
+        <div>
+          <h4>Your Delivery Location</h4>
+          <p id="loc-current-display" class="loc-current">Not set yet</p>
+        </div>
+      </div>
+      <button id="loc-detect-btn" class="loc-detect-btn">
+        <i class="ri-crosshair-2-line"></i> Detect My Location
+      </button>
+      <div class="loc-divider"><span>or enter pincode</span></div>
+      <div class="location-input-group">
+        <input type="number" id="pincode-input" placeholder="6-digit pincode" maxlength="6" inputmode="numeric" />
+        <button class="btn-primary" id="pincode-check">Check</button>
+      </div>
+      <p id="city-display" class="city-display"></p>
+      <div id="loc-status" class="loc-status" style="display:none"></div>
+    </div>
+  </div>
+
+  <!-- ---- QUICK VIEW MODAL ---- -->
+  <div id="quick-view-modal" class="modal">
+    <div class="modal-content quick-view-content">
+      <button id="qv-close" class="modal-close" aria-label="Close quick view"><i class="ri-close-line"></i></button>
+      <div class="quick-view-grid">
+        <div class="qv-image-wrapper">
+          <img id="qv-image" src="" alt="Product quick view image">
+        </div>
+        <div class="qv-details">
+          <h2 id="qv-name"></h2>
+          <div class="qv-price" id="qv-price"></div>
+          <div class="qv-rating" id="qv-rating"></div>
+          <p class="qv-description" id="qv-description"></p>
+          <div class="qv-quantity">
+            <label for="qv-qty">Quantity:</label>
+            <div class="quantity-selector">
+              <button class="qty-btn qty-minus" aria-label="Decrease quantity">−</button>
+              <input type="number" id="qv-qty" value="1" min="1" max="10">
+              <button class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+          <button id="qv-add-to-cart" class="btn-primary btn-block">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       16. AUTH SPLASH SCREEN
+       Shown on first visit — login / sign-up / guest options.
+       Hidden after successful auth or guest dismiss.
+       ============================================================ -->
+  <div id="auth-splash" role="dialog" aria-modal="true" aria-label="Login to Tradition Wear">
+
+    <!-- LEFT: Visual panel -->
+    <div class="auth-splash-visual">
+      <img
+        src="assets/images/login-bg.jpg"
+        alt="Traditional Indian ethnic wear collection">
+      <div class="auth-splash-visual-overlay">
+        <h2>Woven with Love,<br>Delivered with Pride</h2>
+        <p>Join 12,000+ customers celebrating India's handloom heritage.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form panel -->
+    <div class="auth-splash-form">
+      <div class="auth-splash-logo">Tradition Wear</div>
+      <div class="auth-splash-tagline">Handwoven Heritage · Modern Elegance</div>
+
+      <div class="auth-splash-box">
+
+        <!-- ── TABS ── -->
+        <div class="auth-splash-tabs">
+          <button class="auth-splash-tab active" id="splash-login-tab" data-i18n="login">Login</button>
+          <button class="auth-splash-tab" id="splash-signup-tab" data-i18n="signup">Sign Up</button>
+        </div>
+
+        <!-- ══ LOGIN PANEL ══ -->
+        <div class="auth-splash-panel active" id="splash-login-panel">
+
+          <!-- Google login -->
+          <div class="auth-social-row">
+            <button class="auth-social-btn" id="google-login-btn" aria-label="Continue with Google">
+              <img src="https://www.google.com/favicon.ico" width="18" height="18" alt="Google logo">
+              <span data-i18n="loginWithGoogle">Continue with Google</span>
+            </button>
+          </div>
+
+          <div class="auth-divider"><span data-i18n="orEmail">or use email</span></div>
+
+          <!-- Email + password -->
+          <form id="splash-login-form" novalidate>
+            <div class="auth-field">
+              <label for="splash-email" data-i18n="email">Email</label>
+              <input type="email" id="splash-email" autocomplete="email" placeholder="you@example.com">
+              <div class="auth-field-error" id="splash-email-err"></div>
+            </div>
+            <div class="auth-field">
+              <label for="splash-password" data-i18n="password">Password</label>
+              <input type="password" id="splash-password" autocomplete="current-password" placeholder="••••••••">
+              <div class="auth-field-error" id="splash-pass-err"></div>
+            </div>
+            <div class="auth-link-row">
+              <label style="font-size:0.82rem;display:flex;align-items:center;gap:0.4rem;cursor:pointer;">
+                <input type="checkbox" id="splash-remember">
+                <span data-i18n="rememberMe">Remember me</span>
+              </label>
+              <span class="auth-link" id="show-forgot" data-i18n="forgotPassword">Forgot password?</span>
+            </div>
+            <button type="submit" class="auth-submit" data-i18n="loginBtn">Login to Tradition Wear</button>
+          </form>
+
+          <!-- Phone OTP -->
+          <div class="auth-divider" style="margin-top:1.2rem;">
+            <span data-i18n="orPhone">or login with phone</span>
+          </div>
+          <form id="splash-phone-form" novalidate>
+            <div class="auth-field">
+              <label data-i18n="phone">Phone Number</label>
+              <div class="otp-row">
+                <input type="tel" id="splash-phone" placeholder="+91 9876543210" autocomplete="tel">
+                <button type="button" class="otp-send-btn" id="send-otp-btn" data-i18n="sendOtp">Send OTP</button>
+              </div>
+              <div class="auth-field-error" id="splash-phone-err"></div>
+            </div>
+            <div class="auth-field" id="otp-field-wrapper" style="display:none;">
+              <label data-i18n="enterOtp">Enter OTP</label>
+              <input type="text" id="splash-otp" placeholder="6-digit OTP" maxlength="6" inputmode="numeric">
+              <div class="auth-field-error" id="splash-otp-err"></div>
+              <small id="otp-timer" style="color:var(--terracotta);margin-top:0.3rem;display:block;"></small>
+            </div>
+            <button type="submit" class="auth-submit" id="phone-submit-btn" data-i18n="verifyOtp" style="display:none;">
+              Verify &amp; Login
+            </button>
+          </form>
+        </div><!-- /#splash-login-panel -->
+
+        <!-- ══ SIGN UP PANEL ══ -->
+        <div class="auth-splash-panel" id="splash-signup-panel">
+
+          <div class="auth-social-row">
+            <button class="auth-social-btn" id="google-signup-btn" aria-label="Sign up with Google">
+              <img src="https://www.google.com/favicon.ico" width="18" height="18" alt="Google logo">
+              <span data-i18n="signupWithGoogle">Continue with Google</span>
+            </button>
+          </div>
+
+          <div class="auth-divider"><span data-i18n="orEmail">or use email</span></div>
+
+          <form id="splash-signup-form" novalidate>
+            <div class="auth-field">
+              <label for="signup-name-splash" data-i18n="fullName">Full Name</label>
+              <input type="text" id="signup-name-splash" autocomplete="name" placeholder="Your name">
+              <div class="auth-field-error" id="signup-name-err"></div>
+            </div>
+            <div class="auth-field">
+              <label for="signup-email-splash" data-i18n="email">Email</label>
+              <input type="email" id="signup-email-splash" autocomplete="email" placeholder="you@example.com">
+              <div class="auth-field-error" id="signup-email-err"></div>
+            </div>
+            <div class="auth-field">
+              <label for="signup-phone-splash" data-i18n="phone">Phone</label>
+              <input type="tel" id="signup-phone-splash" autocomplete="tel" placeholder="+91 9876543210">
+              <div class="auth-field-error" id="signup-phone-err"></div>
+            </div>
+            <div class="auth-field">
+              <label for="signup-pass-splash" data-i18n="password">Password</label>
+              <input type="password" id="signup-pass-splash" autocomplete="new-password" placeholder="Min. 6 characters">
+              <div class="auth-field-error" id="signup-pass-err"></div>
+            </div>
+            <button type="submit" class="auth-submit" data-i18n="createAccount">Create Account</button>
+          </form>
+        </div><!-- /#splash-signup-panel -->
+
+        <!-- ══ FORGOT PASSWORD PANEL ══ -->
+        <div id="auth-forgot-panel" style="display:none;">
+          <p style="font-size:0.9rem;color:var(--text-light);margin-bottom:1.2rem;" data-i18n="forgotDesc">
+            Enter your email and we'll send a reset link.
+          </p>
+          <form id="splash-forgot-form" novalidate>
+            <div class="auth-field">
+              <label data-i18n="email">Email</label>
+              <input type="email" id="forgot-email" placeholder="you@example.com">
+              <div class="auth-field-error" id="forgot-email-err"></div>
+            </div>
+            <button type="submit" class="auth-submit" data-i18n="sendResetLink">Send Reset Link</button>
+          </form>
+          <div id="forgot-success" style="display:none;text-align:center;padding:1rem;color:var(--terracotta);font-weight:600;">
+            ✅ Reset link sent! Check your inbox.
+          </div>
+          <span class="auth-link" id="back-to-login" style="display:block;text-align:center;margin-top:1rem;" data-i18n="backToLogin">
+            ← Back to Login
+          </span>
+        </div><!-- /#auth-forgot-panel -->
+
+        <!-- Skip as guest -->
+        <button class="auth-guest-btn" id="auth-guest-btn" data-i18n="continueAsGuest">
+          Continue as Guest →
+        </button>
+
+      </div><!-- /.auth-splash-box -->
+    </div><!-- /.auth-splash-form -->
+  </div><!-- /#auth-splash -->
+
+  <!-- ============================================================
+       17. TOAST CONTAINER
+       Fixed-position container for notification toasts
+       ============================================================ -->
+  <div id="toast-container"></div>
+
+  <!-- ============================================================
+       18. BACK TO TOP BUTTON
+       Appears on scroll, smoothly scrolls back to the top
+       ============================================================ -->
+  <button id="back-to-top" aria-label="Back to top">
+    <i class="ri-arrow-up-line"></i>
+  </button>
+
+  <!-- ===== TRANSLATIONS + MAIN JAVASCRIPT ===== -->
+  <script src="translations.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
